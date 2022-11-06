@@ -36,7 +36,8 @@ header{
     justify-content: center;
 
     width: 100%;
-    height: 100px;
+    min-height: 100px;
+
     transition: 500ms;
 }
 
@@ -90,10 +91,55 @@ header ul li a:hover::before{
 
 hr{
     border: 0;
-    height: 0.5px;
+    min-height: 0.5px;
     background-image: linear-gradient(to right, var(--fundo), var(--amarelado), var(--fundo));
 
     margin-bottom: 20px;
+}
+
+
+.container{
+    position: relative;
+    display: flex;
+    width: 100%;
+}
+
+.principal{
+    min-height: 300px;
+    flex-direction: column;
+}
+
+
+.biografia{
+    min-height: 255px;
+    
+}
+
+
+#perfil{
+    display: flex;
+    justify-content: center;
+    width: 30%;
+    max-height: 255px;
+    
+}
+
+#texto{
+    width: 70%;
+    color: var(--begeclaro);
+    text-align: justify;
+
+}
+
+img{
+    width: 70%;
+    min-width: 185px;
+    object-fit: cover;
+    object-position: 0 60%;
+
+    border-radius: 3px;
+    box-shadow:  9px 9px 18px #1f1b1c,
+             -9px -9px 18px #272324;
 }
 
 
@@ -111,19 +157,12 @@ hr{
 
 
 
-
-
-
-
-
-
-
-
 @media only screen and (max-width:660px){
-    
+
+
     header{
         justify-content: left;
-        height: 250px;
+        min-height: 250px;
 
     }
 
@@ -146,5 +185,22 @@ hr{
         color: transparent;
         -webkit-text-stroke: 1px var(--cinzatransparente);
     }
+
+    .biografia{
+        flex-direction: column;
+        align-items: center;
+    }
+    #perfil{
+        width: 90%;
+        min-height:300px;
+    }
+
+    #texto{
+        width: 90%;
+        min-width: 350px;
+        font-size: 1.2rem;
+    }
+
+
 }
 
