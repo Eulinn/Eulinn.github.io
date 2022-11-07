@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;700&family=Raleway:wght@100&display=swap');
+
 *{
     padding: 0;
     margin: 0;
@@ -8,6 +9,7 @@
 
 :root{
     --fundo:#231f20;
+    --fundoescurinho:#1b1919;
     --avermelhado:#bb4430;
     --esverdeado:#7ebdc2;
     --amarelado: #f3dfa2;
@@ -189,14 +191,21 @@ hr{
 
 }
 
+.difesp{
+    justify-content: center;
+}
 
 .peojetosesp{
-    min-width: 100%;
+    min-width: 80%;
     min-height: 350px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+
+    background-color: var(--fundoescurinho);
+    padding: 30px 40px;
+    border-radius: 4px;
 }
 
 
@@ -212,17 +221,17 @@ hr{
     margin: 3%;
 
     border-radius: 3px;
-    background: var(--begeclaroTransp);
-    box-shadow:  11px 11px 22px #171515,
-                -11px -11px 22px #2f292b;
+    background: var(--fundo);
+
 }
 
 .projs p{
-    color: var(--fundo);
-    font-size: 19px;
+    color: var(--begeclaro);
+    font-size: 18px;
     text-align: center;
     font-weight: bold;
     text-transform: uppercase;
+    padding: 10px 5px;
 }
 
 .btn{
@@ -244,15 +253,6 @@ hr{
     color: var(--begeclaro);
     background-color: var(--clr);
 }
-
-.curriculo{
-    position: relative;
-    
-}
-
-
-
-
 
 
 
