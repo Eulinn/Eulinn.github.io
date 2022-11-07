@@ -142,7 +142,15 @@ img{
              -9px -9px 18px #272324;
 }
 
+.crcont{
+    position: relative;
+    display: flex;
 
+    background-color: #bb4430;
+
+    width: 100%;
+    min-height: 300px;
+}
 
 
 
