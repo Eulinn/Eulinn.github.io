@@ -1,5 +1,5 @@
 const imgs = document.getElementById("carrossel");
-const img = document.querySelectorAll("#carrossel img");
+const img = document.querySelectorAll("#carrossel item");
 
 let idx = 0;
 
