@@ -245,6 +245,16 @@ hr{
     background-color: var(--clr);
 }
 
+.curriculo{
+    position: relative;
+    
+}
+
+
+
+
+
+
 
 @media only screen  and (min-width:800px) and (max-width:900px){
     .projs p{
