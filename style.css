@@ -22,7 +22,7 @@ html {
     scroll-behavior: smooth;
 }
 body{
-    width: 99vw;
+    width: 100vw;
     height: 100vh;
 
     overflow-x: hidden;
