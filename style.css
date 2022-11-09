@@ -209,11 +209,12 @@ hr{
 }
 
 
+/*ARRUMAR A PARTIR DAQUI*/
+
 .projs{
+    position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     min-width: 20%;
     min-height: 90%;
     max-height: 350px;
@@ -223,6 +224,28 @@ hr{
     border-radius: 3px;
     background: var(--fundo);
 
+}
+
+
+.conteudo{
+    position: relative;
+    min-width: 100%;
+    min-height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.botao{
+    position: relative;
+    min-width: 100%;
+    min-height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .projs p{
@@ -237,7 +260,7 @@ hr{
 .btn{
     position: relative;
     font-size: 19px;
-    padding: 8px 30px;
+    padding: 3% 30px;
 
     border-radius: 5px;
     border: 3px solid var(--clr);
@@ -246,6 +269,7 @@ hr{
     font-weight: bold;
     cursor: pointer;
     transition: 200ms linear;
+    margin: 10px;
 
 }
 
@@ -254,7 +278,7 @@ hr{
     background-color: var(--clr);
 }
 
-
+/*TERMINO DA ARRUMAÇÃO*/
 
 .rodape{
     min-width: 100%;
