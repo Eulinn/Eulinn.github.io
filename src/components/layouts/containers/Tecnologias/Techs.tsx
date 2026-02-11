@@ -5,7 +5,7 @@ const Notificacoes = () => {
   return (
     // REMOVIDO: max-w-sm, animate-bounce-slow
     // ADICIONADO: h-full, hover:-translate-y-1 (efeito mais elegante)
-    <div className="bg-white/80 backdrop-blur-md p-4 rounded-xl shadow-2xl border border-gray-100 flex items-center gap-4 w-full h-full transition-transform duration-300 hover:-translate-y-1">
+    <div className="bg-white/80 backdrop-blur-md p-4 rounded-xl shadow-2xl border border-gray-100 flex items-center gap-4 w-full h-full transition-transform duration-300 hover:-translate-y-1 active\:-translate-y-1">
       
       {/* Avatar Container (shrink-0 impede de amassar) */}
       <div className="relative shrink-0">
@@ -37,7 +37,7 @@ const Swtich = () => {
   return (
     // REMOVIDO: max-w-sm
     // ALTERADO: p-4 md:p-6 para melhor adaptação
-    <div className="bg-white dark:bg-gray-800 p-4 md:p-6 rounded-2xl shadow-lg border border-gray-100 flex items-center justify-between gap-4 w-full h-full transition-all hover:shadow-xl">
+    <div className="bg-white dark:bg-gray-800 p-4 md:p-6 rounded-2xl shadow-lg border border-gray-100 flex items-center justify-between gap-4 w-full h-full transition-all hover:shadow-xl active:shadow-xl">
       
       <div className="min-w-0">
         <h3 className="font-bold text-gray-800 text-sm md:text-base truncate">Modo Adaptável</h3>
@@ -47,8 +47,8 @@ const Swtich = () => {
       </div>
 
       {/* O Toggle Animado (shrink-0 é essencial aqui) */}
-      <div className="relative w-14 h-7 md:w-16 md:h-8 bg-gray-200 rounded-full flex items-center px-1 cursor-pointer transition-colors duration-300 hover:bg-gray-300 shrink-0">
-        <div className="w-5 h-5 md:w-6 md:h-6 bg-white rounded-full shadow-md transform transition-transform duration-300 translate-x-0 hover:translate-x-7 md:hover:translate-x-8">
+      <div className="relative w-14 h-7 md:w-16 md:h-8 bg-gray-200 rounded-full flex items-center px-1 cursor-pointer transition-colors duration-300 hover:bg-gray-300 active:bg-gray-300 shrink-0">
+        <div className="w-5 h-5 md:w-6 md:h-6 bg-white rounded-full shadow-md transform transition-transform duration-300 translate-x-0 hover:translate-x-7 md:hover:translate-x-8 active:translate-x-7 md:active:translate-x-8">
           {/* Ícone Sol/Lua */}
           <div className="w-full h-full flex items-center justify-center text-[10px]">
             🌙
@@ -62,7 +62,7 @@ const Swtich = () => {
 const Iterativo3D = () => {
   return (
     <div className="group relative w-full w-full h-64 perspective-1000">
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black rounded-2xl transform transition-transform duration-500 group-hover:rotate-y-12 group-hover:rotate-x-12 shadow-2xl border border-gray-800 p-6 flex flex-col justify-between">
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black rounded-2xl transform transition-transform duration-500 group-hover:rotate-y-12 group-hover:rotate-x-12 group-active:rotate-y-12 group-active:rotate-x-12 shadow-2xl border border-gray-800 p-6 flex flex-col justify-between">
         <div className="w-12 h-12 rounded-full bg-Torange/20 flex items-center justify-center">
           <span className="text-2xl">🚀</span>
         </div>
@@ -75,7 +75,7 @@ const Iterativo3D = () => {
         </div>
 
         {/* Brilho no fundo */}
-        <div className="absolute -right-10 -top-10 w-40 h-40 bg-Torange blur-[80px] opacity-20 group-hover:opacity-40 transition-opacity" />
+        <div className="absolute -right-10 -top-10 w-40 h-40 bg-Torange blur-[80px] opacity-20 group-hover:opacity-40 group-active:opacity-40 transition-opacity" />
       </div>
     </div>
   );
@@ -98,12 +98,12 @@ const Grafico = () => {
         {[40, 70, 45, 90, 60, 80, 55].map((h, i) => (
           <div
             key={i}
-            className="flex-1 bg-Torange/20 hover:bg-Torange rounded-t-md transition-all duration-500 relative group"
+            className="flex-1 bg-Torange/20 hover:bg-Torange active:bg-Torange rounded-t-md transition-all duration-500 relative group"
             // Usamos h tem que ser porcentagem do pai flexível
             style={{ height: `${h}%` }}
           >
             {/* Tooltip */}
-            <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10 pointer-events-none">
+            <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-white text-[10px] py-1 px-2 rounded opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity whitespace-nowrap z-10 pointer-events-none">
               R$ {h}k
             </div>
           </div>
@@ -132,7 +132,7 @@ const Upload = () => {
       {/* ADICIONADO: flex-1 
          Isso faz a área pontilhada esticar para ocupar toda a altura do card 
       */}
-      <div className="w-full flex-1 border-2 border-dashed border-blue-300 bg-blue-50 rounded-xl p-4 flex flex-col items-center justify-center text-center cursor-pointer hover:bg-blue-100 transition-colors gap-3">
+      <div className="w-full flex-1 border-2 border-dashed border-blue-300 bg-blue-50 rounded-xl p-4 flex flex-col items-center justify-center text-center cursor-pointer hover:bg-blue-100 active:bg-blue-100 transition-colors gap-3">
         
         {/* Ícone (shrink-0 impede deformação) */}
         <div className="bg-white p-3 rounded-full shadow-sm shrink-0">
@@ -209,7 +209,7 @@ const IAscanner = () => {
     // REMOVIDO: max-w-sm
     // ALTERADO: p-4 (mobile) md:p-6 (desktop)
     // ADICIONADO: flex flex-col justify-between (para esticar o conteudo)
-    <div className="bg-white h-full w-full p-4 md:p-6 rounded-2xl shadow-lg border border-gray-100 group overflow-hidden relative hover:shadow-xl transition-all flex flex-col justify-between">
+    <div className="bg-white h-full w-full p-4 md:p-6 rounded-2xl shadow-lg border border-gray-100 group overflow-hidden relative hover:shadow-xl active:shadow-xl transition-all flex flex-col justify-between">
       
       {/* Cabeçalho */}
       <div className="flex items-center gap-3 mb-4">
@@ -271,7 +271,7 @@ const IAscanner = () => {
 
 const Saas = () => {
   return (
-    <div className="bg-white p-6 h-full w-full rounded-2xl shadow-lg border-2 border-transparent hover:border-Torange transition-all group flex flex-col">
+    <div className="bg-white p-6 h-full w-full rounded-2xl shadow-lg border-2 border-transparent hover:border-Torange active:border-Torange transition-all group flex flex-col">
       
       {/* Parte Superior: Cabeçalho e Lista */}
       <div>
@@ -285,7 +285,7 @@ const Saas = () => {
               <span className="text-gray-400 text-xs ml-1">/mês</span>
             </div>
           </div>
-          <span className="bg-Torange/10 text-Torange text-xs font-bold px-2 py-1 rounded-md group-hover:bg-Torange group-hover:text-white transition-colors">
+          <span className="bg-Torange/10 text-Torange text-xs font-bold px-2 py-1 rounded-md group-hover:bg-Torange group-hover:text-white group-active:bg-Torange group-active:text-white transition-colors">
             Popular
           </span>
         </div>
@@ -307,7 +307,7 @@ const Saas = () => {
       </div>
 
       {/* Botão sempre no rodapé do card */}
-      <button className="w-full mt-6 bg-gray-900 text-white text-xs font-bold py-3 rounded-lg hover:bg-gray-800 transition-colors mt-auto">
+      <button className="w-full mt-6 bg-gray-900 text-white text-xs font-bold py-3 rounded-lg hover:bg-gray-800 active:bg-gray-800 transition-colors mt-auto">
         Começar Agora
       </button>
     </div>

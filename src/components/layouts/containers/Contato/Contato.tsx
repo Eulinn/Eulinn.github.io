@@ -55,14 +55,14 @@ export const ContactSection = () => {
 
           {/* Dados de Contato Direto */}
           <div className="flex flex-col gap-4 mt-4 items-center lg:items-start">
-            <div className="flex items-center gap-4 text-gray-300 hover:text-white transition-colors">
+            <div className="flex items-center gap-4 text-gray-300 hover:text-white active:text-white transition-colors">
               <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-Torange">
                 <Mail size={20} />
               </div>
               <a href="mailto:euler.coutob@gmail.com" className="text-lg">euler.coutob@gmail.com</a>
             </div>
             
-            <div className="flex items-center gap-4 text-gray-300 hover:text-white transition-colors">
+            <div className="flex items-center gap-4 text-gray-300 hover:text-white active:text-white transition-colors">
               <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-Torange">
                 <MapPin size={20} />
               </div>
@@ -96,10 +96,10 @@ export const ContactSection = () => {
               {/* Opção 1: Orçamento */}
               <button 
                 onClick={() => handleWhatsAppClick("project")}
-                className="group cursor-pointer w-full p-4 rounded-xl bg-white/5 border border-white/10 hover:border-Torange/50 hover:bg-white/10 transition-all duration-300 text-left flex items-center justify-between"
+                className="group cursor-pointer w-full p-4 rounded-xl bg-white/5 border border-white/10 hover:border-Torange/50 hover:bg-white/10 active:border-Torange/50 active:bg-white/10 transition-all duration-300 text-left flex items-center justify-between"
               >
                 <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                  <div className="w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center text-xl group-hover:scale-110 group-active:scale-110 transition-transform">
                     🚀
                   </div>
                   <div>
@@ -107,16 +107,16 @@ export const ContactSection = () => {
                     <p className="text-xs text-gray-500">Orçamentos e consultoria</p>
                   </div>
                 </div>
-                <ArrowRight className="text-gray-600 group-hover:text-Torange group-hover:translate-x-1 transition-all" />
+                <ArrowRight className="text-gray-600 group-hover:text-Torange group-hover:translate-x-1 group-active:text-Torange group-active:translate-x-1 transition-all" />
               </button>
 
               {/* Opção 2: Recrutamento */}
               <button 
                 onClick={() => handleWhatsAppClick("hire")}
-                className="group cursor-pointer w-full p-4 rounded-xl bg-white/5 border border-white/10 hover:border-Torange/50 hover:bg-white/10 transition-all duration-300 text-left flex items-center justify-between"
+                className="group cursor-pointer w-full p-4 rounded-xl bg-white/5 border border-white/10 hover:border-Torange/50 hover:bg-white/10 active:border-Torange/50 active:bg-white/10 transition-all duration-300 text-left flex items-center justify-between"
               >
                 <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                  <div className="w-10 h-10 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center text-xl group-hover:scale-110 group-active:scale-110 transition-transform">
                     💼
                   </div>
                   <div>
@@ -124,16 +124,16 @@ export const ContactSection = () => {
                     <p className="text-xs text-gray-500">Vagas e oportunidades</p>
                   </div>
                 </div>
-                <ArrowRight className="text-gray-600 group-hover:text-Torange group-hover:translate-x-1 transition-all" />
+                <ArrowRight className="text-gray-600 group-hover:text-Torange group-hover:translate-x-1 group-active:text-Torange group-active:translate-x-1 transition-all" />
               </button>
 
               {/* Opção 3: Networking/Outros */}
               <button 
                 onClick={() => handleWhatsAppClick("collab")}
-                className="group cursor-pointer w-full p-4 rounded-xl bg-white/5 border border-white/10 hover:border-Torange/50 hover:bg-white/10 transition-all duration-300 text-left flex items-center justify-between"
+                className="group cursor-pointer w-full p-4 rounded-xl bg-white/5 border border-white/10 hover:border-Torange/50 hover:bg-white/10 active:border-Torange/50 active:bg-white/10 transition-all duration-300 text-left flex items-center justify-between"
               >
                 <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                  <div className="w-10 h-10 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center text-xl group-hover:scale-110 group-active:scale-110 transition-transform">
                     👋
                   </div>
                   <div>
@@ -141,7 +141,7 @@ export const ContactSection = () => {
                     <p className="text-xs text-gray-500">Dúvidas ou bate-papo</p>
                   </div>
                 </div>
-                <ArrowRight className="text-gray-600 group-hover:text-Torange group-hover:translate-x-1 transition-all" />
+                <ArrowRight className="text-gray-600 group-hover:text-Torange group-hover:translate-x-1 group-active:text-Torange group-active:translate-x-1 transition-all" />
               </button>
 
             </div>
@@ -150,7 +150,7 @@ export const ContactSection = () => {
             <div className="mt-8 pt-6 border-t border-white/10">
               <Button 
                 onClick={() => handleWhatsAppClick("default")}
-                className="w-full cursor-pointer bg-green-600 hover:bg-green-500 text-white font-bold h-14 rounded-xl text-lg flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(34,197,94,0.3)] hover:shadow-[0_0_30px_rgba(34,197,94,0.5)] transition-all"
+                className="w-full cursor-pointer bg-green-600 hover:bg-green-500 active:bg-green-500 text-white font-bold h-14 rounded-xl text-lg flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(34,197,94,0.3)] hover:shadow-[0_0_30px_rgba(34,197,94,0.5)] transition-all"
               >
                 <FaWhatsapp size={24} />
                 Chamar no WhatsApp

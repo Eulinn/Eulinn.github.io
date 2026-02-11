@@ -24,7 +24,7 @@ export const ServiceCard = ({
             <h3 className="text-2xl text-white font-medium">{title}</h3>
           </div>
           {/* Ícone de seta que acende no hover */}
-          <div className="text-gray-500 group-hover:text-Torange group-hover:rotate-45 transition-all duration-300">
+          <div className="text-gray-500 group-hover:text-Torange group-hover:rotate-45 group-active:text-Torange group-active:rotate-45 transition-all duration-300">
             <ArrowUpRight size={24} />
           </div>
         </div>
@@ -42,6 +42,7 @@ export const ServiceCard = ({
               "absolute w-[85%] h-full bg-Torange rounded-2xl shadow-xl",
               "origin-bottom transition-all duration-500 ease-out",
               "group-hover:-rotate-12 group-hover:-translate-x-12 group-hover:-translate-y-4", // Movimento
+              "group-active:-rotate-12 group-active:-translate-x-12 group-active:-translate-y-4", // Movimento
               "z-0", // Fica atrás
             )}
           >
@@ -55,6 +56,7 @@ export const ServiceCard = ({
               "absolute w-[90%] h-full bg-white rounded-2xl shadow-xl",
               "origin-bottom transition-all duration-500 ease-out delay-75",
               "group-hover:rotate-6 group-hover:translate-x-12 group-hover:-translate-y-2", // Movimento
+              "group-active:rotate-6 group-active:translate-x-12 group-active:-translate-y-2", // Movimento
               "z-10",
             )}
           >
@@ -70,6 +72,7 @@ export const ServiceCard = ({
               "relative w-[95%] h-[110%] bg-[#1a1a1a] border border-white/10 rounded-t-2xl shadow-2xl",
               "transition-all duration-500 ease-out delay-100",
               "group-hover:-translate-y-6 group-hover:scale-105", // Sobe um pouco
+              "group-active:-translate-y-6 group-active:scale-105", // Sobe um pouco
               "z-20 overflow-hidden",
             )}
           >

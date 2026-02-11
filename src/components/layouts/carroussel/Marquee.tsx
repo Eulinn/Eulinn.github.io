@@ -1,9 +1,8 @@
-import React from "react";
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 import { cn } from "@/lib/utils";
 
-const animation = { duration: 20000, easing: (t) => t };
+const animation = { duration: 20000, easing: (t: number) => t };
 
 export default function TechCarousel() {
   const [sliderRef] = useKeenSlider({

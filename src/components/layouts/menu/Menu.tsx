@@ -1,57 +1,24 @@
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 import { cn } from "@/lib/utils";
 import type { ReactNode } from "react";
 // Certifique-se de importar seus assets corretamente
 import Logo from "@/assets/letra-e.png";
 import { IoMenu } from "react-icons/io5";
-
-const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
-  e.preventDefault(); // <--- ISSO É O IMPORTANTE! Impede que a URL mude.
-  
-  const targetId = href.replace('#', ''); // Tira a # e pega só o ID (ex: BIOGRAFIA)
-  const element = document.getElementById(targetId);
-
-  if (element) {
-    const headerOffset = 100; // Espaço para o menu não tampar o título
-    const elementPosition = element.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.scrollY - headerOffset;
-
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: "smooth"
-    });
-  }
-};
-
-
-
-// 1. Dei um upgrade no Option para ter uma animaçãozinha de hover
-const Option = ({
-  children,
-  className,
-  href,
-}: {
-  children?: ReactNode;
-  className?: string;
-  href?: string;
-}) => {
-  return (
-    <a
-      className={cn(
-        className,
-        "relative text-gray-300 cursor-pointer text-sm font-medium transition-colors duration-300 hover:text-white group",
-      )}
-      href={href}
-      onClick={(e) => handleScroll(e, href || "")}
-    >
-      {children}
-      {/* Linha animada embaixo do link quando passa o mouse */}
-      <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-Torange transition-all duration-300 group-hover:w-full" />
-    </a>
-  );
-};
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { Separator } from "@/components/ui/separator";
+import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 
 export const Menu = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   const scrollToId = (id: string) => {
     const element = document.getElementById(id);
 
@@ -71,6 +38,62 @@ export const Menu = () => {
         behavior: "smooth",
       });
     }
+  };
+
+  const handleScroll = (e: React.MouseEvent<HTMLElement>, href: string) => {
+    e.preventDefault(); // <--- ISSO É O IMPORTANTE! Impede que a URL mude.
+
+    const targetId = href.replace("#", ""); // Tira a # e pega só o ID (ex: BIOGRAFIA)
+    const element = document.getElementById(targetId);
+
+    if (element) {
+      const headerOffset = 100; // Espaço para o menu não tampar o título
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+
+      setIsOpen(false);
+    }
+  };
+
+  const handleContactClick = () => {
+    const element = document.getElementById("CONTATO");
+    if (element) {
+      const offsetPosition =
+        element.getBoundingClientRect().top + window.scrollY - 100;
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+      setIsOpen(false);
+    }
+  };
+
+  // 1. Dei um upgrade no Option para ter uma animaçãozinha de hover
+  const Option = ({
+    children,
+    className,
+    href,
+  }: {
+    children?: ReactNode;
+    className?: string;
+    href?: string;
+  }) => {
+    return (
+      <a
+        className={cn(
+          className,
+          "relative text-gray-300 cursor-pointer text-sm font-medium transition-colors duration-300 hover:text-white group",
+        )}
+        href={href}
+        onClick={(e) => handleScroll(e, href || "")}
+      >
+        {children}
+        {/* Linha animada embaixo do link quando passa o mouse */}
+        <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-Torange transition-all duration-300 group-hover:w-full" />
+      </a>
+    );
   };
 
   return (
@@ -117,12 +140,120 @@ export const Menu = () => {
 
         {/* MENU MOBILE (Botão) */}
         <div className="lg:hidden block">
-          <Button
-            size="icon" // Deixa redondinho ou quadrado perfeito
-            className="bg-white/10 text-white rounded-full hover:bg-white/20 border border-white/5"
-          >
-            <IoMenu className="w-6 h-6" />
-          </Button>
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+            {/* --- GATILHO (O Botão que abre) --- */}
+            <SheetTrigger asChild>
+              <Button
+                size="icon"
+                className="bg-white/10 text-white rounded-full hover:bg-white/20 border border-white/5 backdrop-blur-sm"
+              >
+                <IoMenu className="w-6 h-6" />
+              </Button>
+            </SheetTrigger>
+
+            {/* --- CONTEÚDO (O Menu Lateral) --- */}
+            <SheetContent
+              side="right" // Abre da direita (mais natural no mobile)
+              className="w-[300px] sm:w-[400px] bg-black/95 backdrop-blur-xl border-l border-white/10 text-white p-6 flex flex-col"
+            >
+              {/* 1. Cabeçalho (Logo e Nome) */}
+              <SheetHeader className="text-left mb-8">
+                <div className="flex items-center gap-3">
+                  <div className="bg-white/10 p-2 rounded-xl">
+                    <img src={Logo} alt="Logo" className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <SheetTitle className="text-white text-xl font-bold">
+                      Euler Couto
+                    </SheetTitle>
+                    <SheetDescription className="text-gray-400 text-xs">
+                      Full Stack Developer
+                    </SheetDescription>
+                  </div>
+                </div>
+              </SheetHeader>
+
+              {/* 2. Navegação (Links Grandes) */}
+              <div className="flex flex-col gap-6 flex-1">
+                {/* Item 1 */}
+
+                <div
+                  onClick={(e) => handleScroll(e, "#BIOGRAFIA")}
+                  className="group flex items-center gap-4 cursor-pointer"
+                >
+                  <span className="text-gray-600 font-mono text-sm group-hover:text-Torange transition-colors">
+                    01
+                  </span>
+                  <span className="text-3xl font-bold text-gray-300 group-hover:text-white transition-colors">
+                    Sobre mim
+                  </span>
+                </div>
+
+                <Separator className="bg-white/5" />
+
+                {/* Item 2 */}
+
+                <div
+                  onClick={(e) => handleScroll(e, "#STACK")}
+                  className="group flex items-center gap-4 cursor-pointer"
+                >
+                  <span className="text-gray-600 font-mono text-sm group-hover:text-Torange transition-colors">
+                    02
+                  </span>
+                  <span className="text-3xl font-bold text-gray-300 group-hover:text-white transition-colors">
+                    Techs
+                  </span>
+                </div>
+
+                <Separator className="bg-white/5" />
+
+                {/* Item 3 */}
+
+                <div
+                  onClick={(e) => handleScroll(e, "#PROJETOS")}
+                  className="group flex items-center gap-4 cursor-pointer"
+                >
+                  <span className="text-gray-600 font-mono text-sm group-hover:text-Torange transition-colors">
+                    03
+                  </span>
+                  <span className="text-3xl font-bold text-gray-300 group-hover:text-white transition-colors">
+                    Projetos
+                  </span>
+                </div>
+              </div>
+
+              {/* 3. Rodapé (Social + CTA) */}
+              <div className="mt-auto flex flex-col gap-6">
+                {/* Redes Sociais */}
+                <div className="flex gap-4 justify-center">
+                  {[<FaGithub />, <FaLinkedin />, <FaWhatsapp />].map(
+                    (icon, i) => (
+                      <a
+                        key={i}
+                        href="#"
+                        className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:bg-white hover:text-black hover:scale-110 transition-all duration-300"
+                      >
+                        {icon}
+                      </a>
+                    ),
+                  )}
+                </div>
+
+                {/* Botão Final */}
+
+                <Button
+                  onClick={handleContactClick}
+                  className="w-full bg-Torange hover:bg-orange-600 text-white font-bold h-12 rounded-xl"
+                >
+                  Entrar em Contato
+                </Button>
+
+                <p className="text-center text-[10px] text-gray-600">
+                  © 2026 Euler Couto. All rights reserved.
+                </p>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </div>

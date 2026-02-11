@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 
 import FOTO from "@/assets/euler.jpg";
 
@@ -21,7 +20,7 @@ export const SobreMim = () => {
             
             <div className="absolute inset-0 border-2 border-Torange/30 rounded-[2rem] transform rotate-6 translate-x-2 translate-y-2" />
 
-            <div className="relative w-full h-full bg-red-600 rounded-[2rem] shadow-2xl overflow-hidden transform transition-transform duration-500 hover:scale-[1.02]">
+            <div className="relative w-full h-full bg-red-600 rounded-[2rem] shadow-2xl overflow-hidden transform transition-transform duration-500 hover:scale-[1.02] active:scale-[1.02]">
               <img src={FOTO} className="w-full h-full object-cover" />
             </div>
 

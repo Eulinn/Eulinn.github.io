@@ -110,11 +110,11 @@ export const Banner = () => {
               <Badge
                 key={item}
                 className={cn(
-                  "py-2 px-4 text-sm font-medium transition-all duration-300 hover:scale-105",
+                  "py-2 px-4 text-sm font-medium transition-all duration-300 hover:scale-105 active:scale-105",
                   // Lógica visual: alterna entre Outline preto e Fundo Laranja
                   ind % 2 === 0
-                    ? "bg-Torange text-white hover:bg-orange-600 border-none"
-                    : "bg-transparent text-black border-2 border-black hover:bg-black hover:text-white",
+                    ? "bg-Torange text-white hover:bg-orange-600 active:bg-orange-600  border-none"
+                    : "bg-transparent text-black border-2 border-black hover:bg-black hover:text-white active:bg-black active:text-white",
                 )}
               >
                 {item}
@@ -134,7 +134,7 @@ export const Banner = () => {
                   onClick={()=>{
                     window.open(item.link, "_blank")
                   }}
-                  className="cursor-pointer hover:text-Torange hover:-translate-y-1 transition-all duration-300"
+                  className="cursor-pointer hover:text-Torange active:text-Torange active:-translate-y-1 hover:-translate-y-1 transition-all duration-300"
                 >
                   {item.item}
                 </div>

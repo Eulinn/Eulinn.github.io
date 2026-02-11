@@ -31,20 +31,18 @@ export const ServicesSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <ServiceCard
             number="01"
-            title="Web Development"
-            description="Sites de alta performance, sistemas SaaS e dashboards administrativos com React e Tailwind."
+            title="Em desenvolvimento..."
+            description="Estou trabalhando para adicionar novos projetos interessantes para voce!"
           />
-
           <ServiceCard
             number="02"
-            title="Automação & IoT"
-            description="Integração de hardware e software. Controle dispositivos remotamente com eficiência."
+            title="Em desenvolvimento..."
+            description="Estou trabalhando para adicionar novos projetos interessantes para voce!"
           />
-
           <ServiceCard
             number="03"
-            title="AI Solutions"
-            description="Implementação de modelos de IA para análise de dados e otimização de processos."
+            title="Em desenvolvimento..."
+            description="Estou trabalhando para adicionar novos projetos interessantes para voce!"
           />
         </div>
       </div>
