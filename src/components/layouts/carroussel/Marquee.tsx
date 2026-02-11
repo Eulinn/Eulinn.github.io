@@ -1,33 +1,67 @@
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 import { cn } from "@/lib/utils";
+// Importando os ícones (Instale: npm install react-icons)
+import {
+  FaReact,
+  FaNodeJs,
+  FaPython,
+  FaGitAlt,
+  FaLaravel,
+  FaFigma,
+} from "react-icons/fa";
+import {
+  SiTailwindcss,
+  SiTypescript,
+  SiCplusplus,
+  SiArduino,
+  SiPostgresql,
+  SiNextdotjs,
+} from "react-icons/si";
 
 const animation = { duration: 20000, easing: (t: number) => t };
 
+// Lista de tecnologias com suas cores oficiais
+const techs = [
+  { name: "React", icon: FaReact, color: "group-hover:text-[#61DAFB] group-active:text-[#61DAFB]" },
+  { name: "Next.js", icon: SiNextdotjs, color: "group-hover:text-black group-active:text-black" },
+  {
+    name: "Tailwind",
+    icon: SiTailwindcss,
+    color: "group-hover:text-[#06B6D4] group-active:text-[#06B6D4]",
+  },
+  { name: "Node.js", icon: FaNodeJs, color: "group-hover:text-[#339933] group-active:text-[#339933]" },
+  { name: "Laravel", icon: FaLaravel, color: "group-hover:text-[#FF2D20] group-active:text-[#FF2D20]" },
+  {
+    name: "TypeScript",
+    icon: SiTypescript,
+    color: "group-hover:text-[#3178C6] group-active:text-[#3178C6]",
+  },
+  { name: "Python", icon: FaPython, color: "group-hover:text-[#3776AB] group-active:text-[#3776AB]" },
+  { name: "C++", icon: SiCplusplus, color: "group-hover:text-[#00599C] group-active:text-[#00599C]" },
+  { name: "Arduino", icon: SiArduino, color: "group-hover:text-[#00979D] group-active:text-[#00979D]" },
+  { name: "SQL", icon: SiPostgresql, color: "group-hover:text-[#4169E1] group-active:text-[#4169E1]" },
+  { name: "Git", icon: FaGitAlt, color: "group-hover:text-[#F05032] group-active:text-[#F05032]" },
+  { name: "Figma", icon: FaFigma, color: "group-hover:text-[#F24E1E] group-active:text-[#F24E1E]" },
+];
+
 export default function TechCarousel() {
   const [sliderRef] = useKeenSlider({
-    loop: true, // Infinito
-    renderMode: "performance", // Melhor performance para animações contínuas
-    drag: false, // Desabilita o arraste manual (opcional, para focar no automático)
-
-    // Configurações de quantos slides ver por vez (Responsivo)
+    loop: true,
+    renderMode: "performance",
+    drag: false,
     slides: {
-      perView: 2, // Mobile: vê 2 itens
-      spacing: 15,
-      origin: "center",
+      perView: 2.5,
+      spacing: 20,
     },
     breakpoints: {
       "(min-width: 640px)": {
-        // Tablet
-        slides: { perView: 4, spacing: 20 },
+        slides: { perView: 4, spacing: 30 },
       },
       "(min-width: 1024px)": {
-        // Desktop
         slides: { perView: 6, spacing: 40 },
       },
     },
-
-    // O segredo do movimento infinito está aqui:
     created(s) {
       s.moveToIdx(5, true, animation);
     },
@@ -39,60 +73,52 @@ export default function TechCarousel() {
     },
   });
 
-  // Seus itens (Badges, Logos, etc)
-  const techs = [
-    "React",
-    "Tailwind",
-    "Node.js",
-    "Laravel",
-    "Arduino",
-    "Python",
-    "Git",
-    "C++",
-    "Figma",
-    "TypeScript",
-    "SQL",
-  ];
-
   return (
-    <div className="w-full py-10 overflow-hidden relative">
-      <div ref={sliderRef} className="keen-slider z-0">
+    <div className="w-full relative bg-white py-10">
+      {/* Container do Slider */}
+      <div ref={sliderRef} className="keen-slider py-4 select-none">
         {techs.map((tech, i) => (
           <div
             key={i}
-            className={cn(
-              "flex items-center justify-center h-20",
-              "keen-slider__slide text-gray-400 rounded-xl font-bold",
-              "text-3xl"
-            )}
+            className="keen-slider__slide flex items-center justify-center p-2"
           >
-            {/* Aqui dentro vai seu Ícone ou Badge */}
-            {tech}
+            {/* CARD ESTILIZADO (Minimalista) */}
+            <div
+              className={cn(
+                "group relative w-full h-32 rounded-2xl",
+                "bg-white border border-gray-100", // Fundo branco com borda sutil
+                "shadow-[0_4px_20px_-10px_rgba(0,0,0,0.1)]", // Sombra suave
+                "flex flex-col items-center justify-center gap-3",
+                "transition-all duration-300 ease-out",
+                "hover:-translate-y-2 hover:shadow-xl hover:border-gray-200", // Efeito de levitação
+                "active:-translate-y-2 active:shadow-xl active:border-gray-200", // Efeito de levitação
+              )}
+            >
+              {/* ÍCONE */}
+              <div
+                className={cn(
+                  "text-5xl text-gray-400 transition-colors duration-300",
+                  tech.color, // A cor aparece só no hover (group-hover)
+                )}
+              >
+                <tech.icon />
+              </div>
+
+              {/* NOME */}
+              <span className="text-sm font-bold text-gray-400 group-hover:text-gray-800 group-active:text-gray-800 transition-colors">
+                {tech.name}
+              </span>
+            </div>
           </div>
         ))}
       </div>
 
-      {/* --- FUMAÇA DA ESQUERDA (Fade Left) --- */}
-      <div
-        className="
-      pointer-events-none 
-      absolute top-0 bottom-0 left-0
-      w-40 lg:w-80
-      z-10
-      bg-gradient-to-r from-white to-transparent
-    "
-      />
+      {/* --- FADE BRANCO (Fumaça para esconder as pontas) --- */}
+      {/* Esquerda */}
+      <div className="pointer-events-none absolute top-0 bottom-0 left-0 w-24 bg-gradient-to-r from-white via-white/80 to-transparent z-10" />
 
-      {/* --- FUMAÇA DA DIREITA (Fade Right) --- */}
-      <div
-        className="
-      pointer-events-none
-      absolute top-0 bottom-0 right-0
-      w-40 lg:w-80
-      z-10
-      bg-gradient-to-l from-white to-transparent
-    "
-      />
+      {/* Direita */}
+      <div className="pointer-events-none absolute top-0 bottom-0 right-0 w-24 bg-gradient-to-l from-white via-white/80 to-transparent z-10" />
     </div>
   );
 }
