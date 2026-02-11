@@ -31,7 +31,7 @@ export const ServiceCard = ({
 
         <Separator className="my-4 opacity-20 bg-white" />
 
-        <p className="text-gray-400 text-sm mb-4 line-clamp-2">{description}</p>
+        <p className="text-gray-400 text-sm pb-8 line-clamp-2">{description}</p>
 
         {/* --- A MÁGICA DAS CAMADAS (Fanning Effect) --- */}
         {/* Usamos 'mt-auto' para jogar as cartas pro fundo do container */}

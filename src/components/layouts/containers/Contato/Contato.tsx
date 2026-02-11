@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Mail, MapPin } from "lucide-react"; // Ou react-icons
-import { FaWhatsapp, FaLinkedinIn, FaGithub } from "react-icons/fa";
+import { FaWhatsapp, FaLinkedinIn, FaGithub, FaInstagram } from "react-icons/fa";
 
 export const ContactSection = () => {
   const phoneNumber = "5532999266247"; 
@@ -25,6 +25,26 @@ export const ContactSection = () => {
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
   };
+
+
+    const redes = [
+      {
+        item: <FaWhatsapp />,
+        link: "https://wa.me/5532999266247"
+      },
+      {
+        item: <FaInstagram />,
+        link: "https://www.instagram.com/eulin___/"
+      },
+      {
+        item: <FaGithub />,
+        link: "https://github.com/Eulinn"
+      },
+      {
+        item: <FaLinkedinIn />,
+        link: "https://www.linkedin.com/in/eulerbarreto/"
+      },
+    ];
 
   return (
     <section className="relative w-full py-20 px-6 lg:px-12 bg-black overflow-hidden" id="CONTATO">
@@ -72,9 +92,9 @@ export const ContactSection = () => {
 
           {/* Redes Sociais */}
           <div className="flex gap-4 mt-4 justify-center lg:justify-start">
-            {[<FaLinkedinIn />, <FaGithub />].map((icon, i) => (
-              <a key={i} href="#" className="w-12 h-12 border border-white/20 rounded-full flex items-center justify-center text-white text-xl hover:bg-Torange hover:border-Torange hover:-translate-y-1 transition-all duration-300">
-                {icon}
+            {redes.map((icon, i) => (
+              <a key={i} href={icon.link} target="_blank" className="w-12 h-12 border border-white/20 rounded-full flex items-center justify-center text-white text-xl hover:bg-Torange hover:border-Torange hover:-translate-y-1 transition-all duration-300">
+                {icon.item}
               </a>
             ))}
           </div>

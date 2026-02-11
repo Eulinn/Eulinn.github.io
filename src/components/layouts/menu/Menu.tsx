@@ -41,33 +41,36 @@ export const Menu = () => {
   };
 
   const handleScroll = (e: React.MouseEvent<HTMLElement>, href: string) => {
-    e.preventDefault(); // <--- ISSO É O IMPORTANTE! Impede que a URL mude.
+    e.preventDefault();
+    setIsOpen(false);
 
-    const targetId = href.replace("#", ""); // Tira a # e pega só o ID (ex: BIOGRAFIA)
-    const element = document.getElementById(targetId);
+    setTimeout(() => {
+      const targetId = href.replace("#", ""); // Tira a # e pega só o ID (ex: BIOGRAFIA)
+      const element = document.getElementById(targetId);
 
-    if (element) {
-      const headerOffset = 100; // Espaço para o menu não tampar o título
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+      if (element) {
+        const headerOffset = 100; // Espaço para o menu não tampar o título
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.scrollY - headerOffset;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-
-      setIsOpen(false);
-    }
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    }, 100);
   };
 
   const handleContactClick = () => {
-    const element = document.getElementById("CONTATO");
-    if (element) {
-      const offsetPosition =
-        element.getBoundingClientRect().top + window.scrollY - 100;
-      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-      setIsOpen(false);
-    }
+    setTimeout(() => {
+      const element = document.getElementById("CONTATO");
+      if (element) {
+        const offsetPosition =
+          element.getBoundingClientRect().top + window.scrollY - 100;
+        window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+        setIsOpen(false);
+      }
+    }, 100);
   };
 
   // 1. Dei um upgrade no Option para ter uma animaçãozinha de hover

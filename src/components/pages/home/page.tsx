@@ -13,7 +13,7 @@ import { TechShowcase } from "@/components/layouts/containers/Tecnologias/Techs"
 export const Home = () => {
 
   return (
-    <PageContainer>
+    <PageContainer className="overflow-x-hidden">
       {/* Menu */}
       <div className="lg:px-12 py-8 w-full flex justify-center">
         <Menu />
